@@ -1,0 +1,128 @@
+// $color-dark: rgb(70, 70, 70);
+$color-dark: rgb(52, 58, 62); //more 'blueish'
+$color-dark-light: rgb(62, 68, 72);
+$color-dark-light2: rgb(100, 100, 100);
+$color-light: rgb(150, 150, 150);
+$color-light2: rgb(235, 235, 235);
+
+$r: 4px;
+
+
+
+//BOOTSTRAP BREAKPOINTS
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+);
+
+// TYPOGRAPHY
+
+$extralight: 200;
+$extralightitalic: 200i;
+
+$light: 300;
+$lightitalic: 300i;
+
+$regular: 400;
+$regularitalic: 400i;
+
+$semibold: 500;
+$semibolditalic: 500i;
+
+$bold: 600;
+$bolditalic: 600i;
+
+$black: 700;
+$blackitalic: 700i;
+
+@mixin font-style(
+  $size: false,
+  $colour: false,
+  $weight: false,
+  $lh: false,
+  $ls: false,
+  $ta: false
+) {
+  @if $size {
+    font-size: $size;
+  }
+  @if $colour {
+    color: $colour;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+  @if $ls {
+    letter-spacing: $ls;
+  }
+  @if $ta {
+    text-align: $ta;
+  }
+}
+
+// PICTURES
+@mixin profile-pic(
+  $size: false,
+  $radius: false
+  ){
+  height: $size;
+  width: $size;
+
+  @if $radius {
+    border-radius: $radius;
+  }
+  @else{
+    border-radius: 9999px;
+  }
+
+  object-fit: cover;
+}
+
+@mixin article-pic(
+  $h: false,
+  $w: false,
+  $radius: false
+){
+  height: $h;
+  width: $w;
+  @if $radius {
+    border-radius: $radius;
+  }
+  object-fit: cover;
+}
+
+//BUTTONS
+
+@mixin CTA-btn(
+  $margin: false,
+  $fs: 16px,
+  $px: 3px,
+  $py: 15px,
+){
+  @if $margin{
+    margin: $margin;
+  }
+  font-size: $fs;
+  color: $color-light;
+  border: 1px solid $color-light;
+  padding: $px $py;
+  background: none;
+  border-radius: $r;
+  transition: 0.3s ease;
+  &:hover{
+      background: $color-dark;
+      border-color: $color-dark;
+      color: white;
+      transform: scale(1.04);
+      &.dark{
+          background: $color-light2;
+          border-color: $color-light2;
+          color: $color-dark;
+      }
+  }
+}
